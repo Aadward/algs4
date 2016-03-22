@@ -1,2 +1,2 @@
 # algs4
-Exercises on the Algs4
+It's just some exercises on the Algs4.
