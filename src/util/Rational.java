@@ -1,7 +1,5 @@
-package algs4;
+package util;
 
-import util.Numerical;
-import util.StdOut;
 
 public class Rational {
 	
