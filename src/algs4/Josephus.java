@@ -4,11 +4,16 @@ import util.ResizingArrayQueue;
 import util.StdIn;
 import util.StdOut;
 
+/**
+ * 报数问题：求报数的顺序
+ * 
+ *
+ */
 public class Josephus {
 
 	public static void main(String[] args) {
-		int N = StdIn.readInt();
-		int M = StdIn.readInt();
+		int N = StdIn.readInt(); //数的数量
+		int M = StdIn.readInt();  //报数的间隔
 		ResizingArrayQueue<Integer> q = new ResizingArrayQueue<Integer>();
 		
 		for(int i = 0; i < N; i++){

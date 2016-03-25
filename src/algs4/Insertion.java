@@ -2,10 +2,23 @@ package algs4;
 
 import util.SortUtils;
 
+/**
+ * ≤Â»Î≈≈–Ú
+ * 
+ *
+ */
 public class Insertion {
 	public static void sort(Comparable[] a){
 		for(int i = 0; i < a.length; i++){
 			for(int j = i; j > 0 && SortUtils.less(a[j], a[j-1]); j--){
+					SortUtils.exch(a, j, j-1);
+			}
+		}
+	}
+	
+	public static void sort(Comparable[] a, int lo,int hi){
+		for(int i = lo; i < hi; i++){
+			for(int j = i; j > lo && SortUtils.less(a[j], a[j-1]); j--){
 					SortUtils.exch(a, j, j-1);
 			}
 		}
