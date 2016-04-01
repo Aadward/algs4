@@ -3,6 +3,7 @@ package algs4;
 import java.util.ArrayList;
 import java.util.List;
 
+import util.MaxPQ;
 import util.StdOut;
 import util.StdRandom;
 import util.StopWatch;
@@ -17,6 +18,10 @@ public class SortCompare {
 		if(alg.equals("Shell"))  Shell.sort(a);
 		if(alg.equals("Merge"))  Merge.sort(a);
 		if(alg.equals("QuickSort"))  QuickSort.sort(a);
+		if(alg.equals("Heap")){
+			MaxPQ<Comparable> pq = new MaxPQ<Comparable>();
+			pq.sort(a);
+		}
 		return timer.elapsedTime();
 	}
 	
@@ -48,6 +53,7 @@ public class SortCompare {
 		algs.add("Shell");
 		algs.add("Merge");
 		algs.add("QuickSort");
+		algs.add("Heap");
 		
 		int N = 100000;
 		int T = 100;

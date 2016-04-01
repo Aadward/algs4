@@ -3,7 +3,7 @@ package algs4;
 import util.SortUtils;
 
 /**
- * 归并排序（自顶向下的归并排序）
+ * 归并排序（自顶向下的尾递归归并排序）
  * 
  *
  */
