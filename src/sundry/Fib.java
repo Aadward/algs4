@@ -22,7 +22,7 @@ public class Fib {
 
 	public static void main(String[] args) {
 		StopWatch sw = new StopWatch();
-		System.out.println(fib(1001,1,1) + "\n" + sw.elapsedTime());
+		System.out.println(fib(1,1,1) + "\n" + sw.elapsedTime());
 	}
 
 }
