@@ -34,7 +34,6 @@ public class UniqueBinary {
 		 for(int i = lo; i <= hi; i++){
 			 List<TreeNode> leftNodes = findChildren(lo, i-1);
 			 List<TreeNode> rightNodes = findChildren(i+1, hi);
-			 List<TreeNode> branches = new ArrayList<TreeNode>();
 			 if(leftNodes.size() == 0 && rightNodes.size() == 0){
 				 ret.add(new TreeNode(i));
 				 return ret;
