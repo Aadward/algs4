@@ -13,50 +13,40 @@ import java.util.List;
 public class UniqueBinary {
 	public static void main(String[] args) {
 		UniqueBinary ub = new UniqueBinary();
-		List<TreeNode> list = ub.generateTrees(3);
+		List<TreeNode> list = ub.generateTrees(4);
 		for(TreeNode t : list){
 			System.out.println(t.val);
 		}
 	}
-    public List<TreeNode> generateTrees(int n) {
-        List<TreeNode> ret = new ArrayList<TreeNode>();
-        for(int i = 1; i <= n; i++){
-            List<TreeNode> leftNodes = findChildren(1, i - 1);
-            List<TreeNode> rightNodes = findChildren(i + 1, n);
-            for(TreeNode l : leftNodes){//自由组合左右子节点
-                for(TreeNode r : rightNodes){
-                    TreeNode temp = new TreeNode(i);
-                    temp.left = l;
-                    temp.right = r;
-                    ret.add(temp);
-                }
-            }
-        }
-        return ret;
-    }
-    
-    private List<TreeNode> findChildren(int lo, int hi){
-        List<TreeNode> ret = new ArrayList<TreeNode>();
-        //如果为底部，则返回它本身，如果为边界，返回null
-        if(lo == hi){
-           ret.add(new TreeNode(lo));
-           return ret;
-        }  
-        else if(lo > hi)  return ret;
-        //如果不是底部
-        for(int i = lo; i <= hi; i++){//找直接子节点
-            List<TreeNode> leftNodes = findChildren(lo,i - 1);//递归得子节点的左子节点集合
-            List<TreeNode> rightNodes = findChildren(i + 1, hi);//递归得子节点的右子节点集合
-            
-            if(leftNodes.size() == 0){
+	
+	 public List<TreeNode> generateTrees(int n){
+		 return findChildren(1, n);
+	 }
+	 private List<TreeNode> findChildren(int lo, int hi){
+		 List<TreeNode> ret = new ArrayList<TreeNode>();
+		 if(lo == hi){//找到了叶子节点
+			 ret.add(new TreeNode(lo));
+			 return ret;
+		 } else if (lo > hi) {//子节点为空（左或者右子节点之一为空，如果都为空的话则会被当做叶子节点返回）
+			return ret;
+		 }
+		 //如果不是底部，则需要继续递归查询
+		 for(int i = lo; i <= hi; i++){
+			 List<TreeNode> leftNodes = findChildren(lo, i-1);
+			 List<TreeNode> rightNodes = findChildren(i+1, hi);
+			 List<TreeNode> branches = new ArrayList<TreeNode>();
+			 if(leftNodes.size() == 0 && rightNodes.size() == 0){
+				 ret.add(new TreeNode(i));
+				 return ret;
+			 }else if(leftNodes.size() == 0){//若左为空，返回右子树
             	for(TreeNode r : rightNodes){
                     TreeNode temp = new TreeNode(i);
                     temp.left = null;
                     temp.right = r;
                     ret.add(temp);
                 }
-            } else if(rightNodes.size() == 0){
-            	for(TreeNode l : leftNodes){//自由组合左右子节点
+            } else if(rightNodes.size() == 0){//若右为空，返回左子树
+            	for(TreeNode l : leftNodes){
                     TreeNode temp = new TreeNode(i);
                     temp.left = l;
                     temp.right = null;
@@ -72,16 +62,8 @@ public class UniqueBinary {
                         ret.add(temp);
                     }
                 }
-            }            
-        }
-        return ret;
-    }
-    
-    
-    private TreeNode deepCopyBST(TreeNode old){
-        TreeNode ret = new TreeNode(old.val);
-        if(old.left != null)  ret.left = deepCopyBST(old.left);
-        if(old.right != null)  ret.right = deepCopyBST(old.right);
-        return ret;
-    }
+            } 
+		 }
+		 return ret;
+	 }
 }
