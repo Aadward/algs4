@@ -27,8 +27,8 @@ Given n = 3, your program should return all 5 unique BST's shown below.
 ```
 * 具体的递归操作
 ```java
-    List<TreeNode> ret = new ArrayList<TreeNode>();
- //如果不是底部，则需要继续递归查询
+    		List<TreeNode> ret = new ArrayList<TreeNode>();
+ 		//如果不是底部，则需要继续递归查询
 		for(int i = lo; i <= hi; i++){
 			 List<TreeNode> leftNodes = findChildren(lo, i-1);
 			 List<TreeNode> rightNodes = findChildren(i+1, hi);
