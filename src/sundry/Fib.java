@@ -1,5 +1,7 @@
 package sundry;
 
+import java.util.Calendar;
+
 import util.StopWatch;
 
 public class Fib {
@@ -22,6 +24,7 @@ public class Fib {
 
 	public static void main(String[] args) {
 		StopWatch sw = new StopWatch();
+		System.out.println(Calendar.getInstance().getTime());
 		System.out.println(fib(1,1,1) + "\n" + sw.elapsedTime());
 	}
 
