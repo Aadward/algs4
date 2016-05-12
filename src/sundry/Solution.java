@@ -1,30 +1,40 @@
 package sundry;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Solution {
 	
 	public static void main(String[] args) {
-		System.out.println(new Solution().singleNumber(new int[]{1,3,1,5,3}));
+		List<List<Integer>> lists = new Solution().permuteUnique(new int[]{1,1,2});
+		for(List<Integer> l : lists){
+			for(int i : l){
+				System.out.print(i);
+			}
+			System.out.println();
+		}
 	}
-	public int singleNumber(int[] nums) {
-		if(nums.length == 0)  return 0;
-        Arrays.sort(nums);
-        return segment(nums,0,nums.length - 1);
+	public List<List<Integer>> permuteUnique(int[] nums) {
+        List<List<Integer>> lists = new ArrayList<List<Integer>>();
+        List<Integer> list = new ArrayList<Integer>();
+        List<Integer> index = new ArrayList<Integer>();
+        dfs(lists,list,nums,index);
+        return lists;
     }
     
-    private int segment(int[] nums, int lo, int hi){
-        int mid = lo + (hi - lo) / 2;
-        if(mid == hi && mid == lo)  return nums[mid];
-        if(nums[mid] == nums[mid - 1]){
-        	if((mid - lo) % 2 == 0)  hi = mid;
-        	else  lo = mid + 1;
+    private void dfs(List<List<Integer>> lists,List<Integer> previous, int[] nums, List<Integer> index){
+        if(index.size() == nums.length){
+        	lists.add(previous);
+        	return;
         }
-        else if(nums[mid] == nums[mid + 1]){
-        	if((hi - mid) % 2 == 0)  lo = mid;
-        	else  hi = mid - 1;
+        List<Integer> list = new ArrayList<Integer>(previous);
+        List<Integer> indices = new ArrayList<Integer>(index);
+        
+        for(int i = 0; i < nums.length; i++){
+            if(index.contains(i))  continue;
+            list.add(nums[i]);
+            indices.add(i);
+            dfs(lists,list,nums,indices);
         }
-        else  return nums[mid];
-        return segment(nums,lo,hi);
     }
 }
