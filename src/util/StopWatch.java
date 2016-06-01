@@ -1,7 +1,7 @@
 package util;
 
 public class StopWatch {
-	private final long start;
+	private long start;
 	
 	public StopWatch(){
 		start = System.currentTimeMillis();
@@ -9,6 +9,8 @@ public class StopWatch {
 	
 	public double elapsedTime(){
 		long now = System.currentTimeMillis();
-		return (now - start) / 1000.0;
+		double ret = (now - start) / 1000.0;
+		start = now;
+		return ret;
 	}	
 }
