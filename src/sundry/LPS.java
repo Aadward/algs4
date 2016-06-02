@@ -1,5 +1,7 @@
 package sundry;
 
+import util.StopWatch;
+
 public class LPS {
 	
 	public static int lps(char[] s, int head, int tail){
@@ -27,7 +29,8 @@ public class LPS {
 	
 	public static void main(String[] args) {
 		char[] c = "google".toCharArray();
-		System.out.println(lps(c,0,c.length - 1));
-		System.out.println(dplps(c));
+		StopWatch sw = new StopWatch();
+		System.out.println(dplps(c) +"   ºÄÊ±:" + sw.elapsedTime());
+		System.out.println(lps(c,0,c.length - 1) +"   ºÄÊ±:" + sw.elapsedTime());
 	}
 }
