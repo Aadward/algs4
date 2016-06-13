@@ -9,7 +9,8 @@ public class Hanoi {
 	
 	private int count = 0;
 	
-	public void hanoi(int n, String src, String des){
+	public void hanoi(int n, char src, char des){
+		if(n < 1)  return;
 		if(n >= 2){
 			hanoi(n - 1, src, reverse(src, des));
 			hanoi(1, src, des);
@@ -20,14 +21,11 @@ public class Hanoi {
 		}
 	}
 	
-	private String reverse(String src, String des){
-		if(src.equals("A") && des.equals("B")){
-			return "C";
-		}else if(src.equals("A") && des.equals("C")){
-			return "B";
-		}else{
-			return "A";
-		}
+	private char reverse(char src, char des){
+		int total = 'A' + 'B' + 'C';
+		if(total - src - des > 'B')  return 'C';
+		else if(total - src - des < 'B')  return 'A';
+		else return 'B';
 	}
 	
 	public int getCount(){
@@ -36,7 +34,7 @@ public class Hanoi {
 	
 	public static void main(String[] args) {
 		Hanoi hanoi = new Hanoi();
-		hanoi.hanoi(3, "A", "C");
+		hanoi.hanoi(4, 'A','C');
 		System.out.println("共计移动次数：" + hanoi.getCount());
 	}
 
