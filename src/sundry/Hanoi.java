@@ -9,12 +9,12 @@ public class Hanoi {
 	
 	private int count = 0;
 	
-	public void hanoi(int n, char src, char des){
+	public void move(int n, char src, char des){
 		if(n < 1)  return;
 		if(n >= 2){
-			hanoi(n - 1, src, reverse(src, des));
-			hanoi(1, src, des);
-			hanoi(n - 1, reverse(src, des), des);
+			move(n - 1, src, reverse(src, des));
+			move(1, src, des);
+			move(n - 1, reverse(src, des), des);
 		} else{
 			System.out.println("移动路径：" + src + "-->" + des );
 			count ++;
@@ -34,7 +34,7 @@ public class Hanoi {
 	
 	public static void main(String[] args) {
 		Hanoi hanoi = new Hanoi();
-		hanoi.hanoi(4, 'A','C');
+		hanoi.move(4, 'A','C');
 		System.out.println("共计移动次数：" + hanoi.getCount());
 	}
 
