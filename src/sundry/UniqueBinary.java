@@ -24,27 +24,27 @@ public class UniqueBinary {
 	 }
 	 private List<TreeNode> findChildren(int lo, int hi){
 		 List<TreeNode> ret = new ArrayList<TreeNode>();
-		 if(lo == hi){//ÕÒµ½ÁËÒ¶×Ó½Úµã
+		 if(lo == hi){//æ‰¾åˆ°äº†å¶å­èŠ‚ç‚¹
 			 ret.add(new TreeNode(lo));
 			 return ret;
-		 } else if (lo > hi) {//×Ó½ÚµãÎª¿Õ£¨×ó»òÕßÓÒ×Ó½ÚµãÖ®Ò»Îª¿Õ£¬Èç¹û¶¼Îª¿ÕµÄ»°Ôò»á±»µ±×öÒ¶×Ó½Úµã·µ»Ø£©
+		 } else if (lo > hi) {//å­èŠ‚ç‚¹ä¸ºç©ºï¼ˆå·¦æˆ–è€…å³å­èŠ‚ç‚¹ä¹‹ä¸€ä¸ºç©ºï¼Œå¦‚æœéƒ½ä¸ºç©ºçš„è¯åˆ™ä¼šè¢«å½“åšå¶å­èŠ‚ç‚¹è¿”å›ï¼‰
 			return ret;
 		 }
-		 //Èç¹û²»ÊÇµ×²¿£¬ÔòĞèÒª¼ÌĞøµİ¹é²éÑ¯
+		 //å¦‚æœä¸æ˜¯åº•éƒ¨ï¼Œåˆ™éœ€è¦ç»§ç»­é€’å½’æŸ¥è¯¢
 		 for(int i = lo; i <= hi; i++){
 			 List<TreeNode> leftNodes = findChildren(lo, i-1);
 			 List<TreeNode> rightNodes = findChildren(i+1, hi);
 			 if(leftNodes.size() == 0 && rightNodes.size() == 0){
 				 ret.add(new TreeNode(i));
 				 return ret;
-			 }else if(leftNodes.size() == 0){//Èô×óÎª¿Õ£¬·µ»ØÓÒ×ÓÊ÷
+			 }else if(leftNodes.size() == 0){//è‹¥å·¦ä¸ºç©ºï¼Œè¿”å›å³å­æ ‘
             	for(TreeNode r : rightNodes){
                     TreeNode temp = new TreeNode(i);
                     temp.left = null;
                     temp.right = r;
                     ret.add(temp);
                 }
-            } else if(rightNodes.size() == 0){//ÈôÓÒÎª¿Õ£¬·µ»Ø×ó×ÓÊ÷
+            } else if(rightNodes.size() == 0){//è‹¥å³ä¸ºç©ºï¼Œè¿”å›å·¦å­æ ‘
             	for(TreeNode l : leftNodes){
                     TreeNode temp = new TreeNode(i);
                     temp.left = l;
@@ -53,7 +53,7 @@ public class UniqueBinary {
                     
                 }
             } else{
-            	for(TreeNode l : leftNodes){//×ÔÓÉ×éºÏ×óÓÒ×Ó½Úµã
+            	for(TreeNode l : leftNodes){//è‡ªç”±ç»„åˆå·¦å³å­èŠ‚ç‚¹
                     for(TreeNode r : rightNodes){
                         TreeNode temp = new TreeNode(i);
                         temp.left = l;

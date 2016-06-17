@@ -5,15 +5,15 @@ import util.StdIn;
 import util.StdOut;
 
 /**
- * ±¨ÊıÎÊÌâ£ºÇó±¨ÊıµÄË³Ğò
+ * æŠ¥æ•°é—®é¢˜ï¼šæ±‚æŠ¥æ•°çš„é¡ºåº
  * 
  *
  */
 public class Josephus {
 
 	public static void main(String[] args) {
-		int N = StdIn.readInt(); //ÊıµÄÊıÁ¿
-		int M = StdIn.readInt();  //±¨ÊıµÄ¼ä¸ô
+		int N = StdIn.readInt(); //æ•°çš„æ•°é‡
+		int M = StdIn.readInt();  //æŠ¥æ•°çš„é—´éš”
 		ResizingArrayQueue<Integer> q = new ResizingArrayQueue<Integer>();
 		
 		for(int i = 0; i < N; i++){

@@ -8,7 +8,7 @@ import util.StopWatch;
 
 public class Fib {
 	
-	//´óÁ¿ÖØ¸´¼ÆËã£¬Ğ§ÂÊ¼«µÍ
+	//å¤§é‡é‡å¤è®¡ç®—ï¼Œæ•ˆç‡æä½
 	public static long fib(int n){
 		return (n == 1 || n ==2) ? 1 : (fib(n-1) + fib(n-2));
 	}

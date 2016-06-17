@@ -30,7 +30,7 @@ public class BST<Key extends Comparable<Key> , Value> {
 	private Value get(Node x, Key key){
 		if(x == null)  return null;
 		int cmp = key.compareTo(x.key);
-		if(cmp < 0)  return get(x.left, key); //如果要查找的key小于此结点x的key
+		if(cmp < 0)  return get(x.left, key); //濡傛灉瑕佹煡鎵剧殑key灏忎簬姝ょ粨鐐箈鐨刱ey
 		else if(cmp > 0)  return get(x.right, key);
 		else  return x.val;
 	}
@@ -93,7 +93,7 @@ public class BST<Key extends Comparable<Key> , Value> {
 		if(t != null) return t;
 		else  return x;
 	}
-	//查找第k大的结点的Key
+	//鏌ユ壘绗琸澶х殑缁撶偣鐨凨ey
 	public Key select(int k){
 		return select(root, k).key;
 	}

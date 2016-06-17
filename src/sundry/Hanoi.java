@@ -1,7 +1,7 @@
 package sundry;
 
 /**
- * ¼òµ¥µÄººÅµËþÊµÏÖ
+ * ç®€å•çš„æ±‰è¯ºå¡”å®žçŽ°
  * @author syh
  *
  */
@@ -16,7 +16,7 @@ public class Hanoi {
 			move(1, src, des);
 			move(n - 1, reverse(src, des), des);
 		} else{
-			System.out.println("ÒÆ¶¯Â·¾¶£º" + src + "-->" + des );
+			System.out.println("ç§»åŠ¨è·¯å¾„ï¼š" + src + "-->" + des );
 			count ++;
 		}
 	}
@@ -35,7 +35,7 @@ public class Hanoi {
 	public static void main(String[] args) {
 		Hanoi hanoi = new Hanoi();
 		hanoi.move(4, 'A','C');
-		System.out.println("¹²¼ÆÒÆ¶¯´ÎÊý£º" + hanoi.getCount());
+		System.out.println("å…±è®¡ç§»åŠ¨æ¬¡æ•°ï¼š" + hanoi.getCount());
 	}
 
 }

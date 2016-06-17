@@ -30,7 +30,7 @@ public class LPS {
 	public static void main(String[] args) {
 		char[] c = "google".toCharArray();
 		StopWatch sw = new StopWatch();
-		System.out.println(dplps(c) +"   ºÄÊ±:" + sw.elapsedTime());
-		System.out.println(lps(c,0,c.length - 1) +"   ºÄÊ±:" + sw.elapsedTime());
+		System.out.println(dplps(c) +"   è€—æ—¶:" + sw.elapsedTime());
+		System.out.println(lps(c,0,c.length - 1) +"   è€—æ—¶:" + sw.elapsedTime());
 	}
 }

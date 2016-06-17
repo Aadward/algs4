@@ -3,7 +3,7 @@ package algs4;
 import util.SortUtils;
 
 /**
- * ¹é²¢ÅÅĞò£¨×Ô¶¥ÏòÏÂµÄÎ²µİ¹é¹é²¢ÅÅĞò£©
+ * å½’å¹¶æ’åºï¼ˆè‡ªé¡¶å‘ä¸‹çš„å°¾é€’å½’å½’å¹¶æ’åºï¼‰
  * 
  *
  */
@@ -12,32 +12,32 @@ public class Merge {
 	
 	
 	public static void sort(Comparable[] a){
-		aux = new Comparable[a.length];  //·ÖÅä¿Õ¼ä
+		aux = new Comparable[a.length];  //åˆ†é…ç©ºé—´
 		sort(a,0,a.length-1);
 	}
 	
 	public static void sort(Comparable[] a,int lo,int hi){
 		if(lo >= hi)  return;
 		int mid = lo + (hi - lo) / 2;
-		//µİ¹é
+		//é€’å½’
 		sort(a,lo,mid);  
 		sort(a,mid+1,hi);
-		//½«Á½¸öÓĞĞòµÄÊı×é¹é²¢
-		if(!SortUtils.less(a[mid], a[mid+1]))//Èç¹ûmid >= mid+1£¬ËµÃ÷ĞèÒªÅÅĞò
+		//å°†ä¸¤ä¸ªæœ‰åºçš„æ•°ç»„å½’å¹¶
+		if(!SortUtils.less(a[mid], a[mid+1]))//å¦‚æœmid >= mid+1ï¼Œè¯´æ˜éœ€è¦æ’åº
 			merge(a, lo, mid, hi);
 	}
 	
-	//½«a[lo,mid]ºÍa[mid+1,hi]¹é²¢£¨Á½Õß¶¼ÒÑ¾­ÓĞĞò£©
+	//å°†a[lo,mid]å’Œa[mid+1,hi]å½’å¹¶ï¼ˆä¸¤è€…éƒ½å·²ç»æœ‰åºï¼‰
 	public static void merge(Comparable[] a,int lo,int mid,int hi){
 		
 		int i = lo, j = mid + 1;
 		
-		//½«a[]¸´ÖÆµ½aux[]
+		//å°†a[]å¤åˆ¶åˆ°aux[]
 		for(int k = lo; k <= hi; k++){
 			aux[k] = a[k];
 		}
 		
-		//¹é²¢µ½a[]
+		//å½’å¹¶åˆ°a[]
 		for(int k = lo; k <= hi; k++){
 			if(i > mid)  a[k] = aux[j++];
 			else if(j > hi)   a[k] = aux[i++];

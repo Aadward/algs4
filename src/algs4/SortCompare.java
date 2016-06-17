@@ -10,7 +10,7 @@ import util.StopWatch;
 
 public class SortCompare {
 	
-	//µ÷ÓÃÅÅĞòËã·¨
+	//è°ƒç”¨æ’åºç®—æ³•
 	public static double time(String alg, Comparable[] a){
 		StopWatch timer = new StopWatch();
 		if(alg.equals("Selection"))  Selection.sort(a);

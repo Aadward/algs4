@@ -34,7 +34,7 @@ public class WordLadder {
         for (String word : set2) { wordList.remove(word); };
         
         Set<String> next = new HashSet<String>();
-        //ÊÇ·ñÕÒµ½
+        //æ˜¯å¦æ‰¾åˆ°
         for(String s1 : set1){
             for(String s2 : set2){
                 if(isNear(s1,s2))  return level + 1;

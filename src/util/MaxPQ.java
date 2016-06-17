@@ -24,7 +24,7 @@ public class MaxPQ<E extends Comparable> {
 	}
 	
 	public void insert(E item){
-		//ÒòÎªa[0]Ã»ÓÐÊ¹ÓÃ£¬¹Êa.length - 1
+		//å› ä¸ºa[0]æ²¡æœ‰ä½¿ç”¨ï¼Œæ•…a.length - 1
 		if(N == a.length - 1){
 			resize(a.length * 2);
 		}
@@ -73,12 +73,12 @@ public class MaxPQ<E extends Comparable> {
 	}
 	
 	public void sort(E[] a){
-		//ÈÃÊý×é¶ÑÓÐÐò
+		//è®©æ•°ç»„å †æœ‰åº
 		int N = a.length - 1;//101 - 1 = 100
 		for(int i = N/2; i >= 1; i--){
 			sink(a,i,N);
 		}
-		//ÅÅÐò
+		//æŽ’åº
 		while(N > 1){
 			SortUtils.exch(a, 1, N--);
 			sink(a, 1, N);
@@ -102,16 +102,16 @@ public class MaxPQ<E extends Comparable> {
 			pq.insert(StdRandom.uniform(100));
 		}
 		int length = pq.size();
-		System.out.println("PQ³¤¶ÈÎª£º"+length);
+		System.out.println("PQé•¿åº¦ä¸ºï¼š"+length);
 		for(int i = 1; i <= length; i++){
 			StdOut.print(pq.delMax() + " ");
 			if(i % 10 == 0)  StdOut.println();
 			count ++;
 		}
 		System.out.println(count);
-		System.out.println("===============ÅÅÐò==============");
+		System.out.println("===============æŽ’åº==============");
 		
-		Integer[] a = new Integer[101];//³¤¶ÈÎª101£¬0²»ÓÃ£¬1-100
+		Integer[] a = new Integer[101];//é•¿åº¦ä¸º101ï¼Œ0ä¸ç”¨ï¼Œ1-100
 		for(int i = 1; i < a.length; i++){
 			a[i] = StdRandom.uniform(100);
 		}

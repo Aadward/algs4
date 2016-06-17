@@ -5,7 +5,7 @@ import java.util.NoSuchElementException;
 
 /**
  * 
- * Êı×é³õÊ¼³¤¶ÈÎª2£¬Ã¿µ±´æÂúÔòÊı×é³¤¶È³Ë2£¬µ±Êı×éÊ¹ÓÃ²»×ã1/4Ê±£¬Êı×é³¤¶È³ı2
+ * æ•°ç»„åˆå§‹é•¿åº¦ä¸º2ï¼Œæ¯å½“å­˜æ»¡åˆ™æ•°ç»„é•¿åº¦ä¹˜2ï¼Œå½“æ•°ç»„ä½¿ç”¨ä¸è¶³1/4æ—¶ï¼Œæ•°ç»„é•¿åº¦é™¤2
  * 
  * @author syh
  *
@@ -65,7 +65,7 @@ public class ResizingArrayQueue<E> implements Iterable<E>{
 		last = N;
 		array = temp;
 		
-		//System.out.println("Êı×é³¤¶È±ä¸ü£º"+max);
+		//System.out.println("æ•°ç»„é•¿åº¦å˜æ›´ï¼š"+max);
 	}
 	
 	public E peek(){
