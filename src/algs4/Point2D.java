@@ -6,6 +6,7 @@ import java.util.List;
 import util.StdOut;
 import util.StdRandom;
 import util.StopWatch;
+import util.StopWatch.TimeConvert;
 
 /**
  * 
@@ -49,7 +50,7 @@ public class Point2D {
 				min = (min > pList.get(i).distanceTo(pList.get(j)))?pList.get(i).distanceTo(pList.get(j)):min;
 			}
 		}
-		double time = sw.elapsedTime();
+		double time = sw.elapsedTime(TimeConvert.NANO);
 		StdOut.print(min+"\n");
 		StdOut.printf("Use Time : %f seconds.", time);
 	}

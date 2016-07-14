@@ -7,6 +7,7 @@ import util.MaxPQ;
 import util.StdOut;
 import util.StdRandom;
 import util.StopWatch;
+import util.StopWatch.TimeConvert;
 
 public class SortCompare {
 	
@@ -22,7 +23,7 @@ public class SortCompare {
 			MaxPQ<Comparable> pq = new MaxPQ<Comparable>();
 			pq.sort(a);
 		}
-		return timer.elapsedTime();
+		return timer.elapsedTime(TimeConvert.NANO);
 	}
 	
 	public static double timeRandomInput(String alg,int N,int T){

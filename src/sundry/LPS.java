@@ -1,6 +1,7 @@
 package sundry;
 
 import util.StopWatch;
+import util.StopWatch.TimeConvert;
 
 public class LPS {
 	
@@ -30,7 +31,7 @@ public class LPS {
 	public static void main(String[] args) {
 		char[] c = "google".toCharArray();
 		StopWatch sw = new StopWatch();
-		System.out.println(dplps(c) +"   耗时:" + sw.elapsedTime());
-		System.out.println(lps(c,0,c.length - 1) +"   耗时:" + sw.elapsedTime());
+		System.out.println(dplps(c) +"   耗时:" + sw.elapsedTime(TimeConvert.NANO));
+		System.out.println(lps(c,0,c.length - 1) +"   耗时:" + sw.elapsedTime(TimeConvert.NANO));
 	}
 }

@@ -1,6 +1,7 @@
 package sundry;
 
 import util.StopWatch;
+import util.StopWatch.TimeConvert;
 import leetUtil.ListNode;
 
 public class InsertionSortList {
@@ -16,9 +17,9 @@ public class InsertionSortList {
 		ListNode n2 = new ListNode(n);
 		StopWatch sw = new StopWatch();
 		s.insertionSortList1(n1);
-		System.out.println(sw.elapsedTime());
+		System.out.println(sw.elapsedTime(TimeConvert.NANO));
 		s.insertionSortList2(n2);
-		System.out.println(sw.elapsedTime());
+		System.out.println(sw.elapsedTime(TimeConvert.NANO));
 	}
 	
 	public ListNode insertionSortList1(ListNode head) {

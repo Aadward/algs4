@@ -1,6 +1,5 @@
 package algs4;
 
-import util.ResizingArrayQueue;
 import util.StdIn;
 import util.StdOut;
 

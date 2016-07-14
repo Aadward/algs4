@@ -5,6 +5,7 @@ import java.util.Calendar;
 import java.util.HashSet;
 
 import util.StopWatch;
+import util.StopWatch.TimeConvert;
 
 public class Fib {
 	
@@ -28,7 +29,7 @@ public class Fib {
 	public static void main(String[] args) {
 		StopWatch sw = new StopWatch();
 		System.out.println(Calendar.getInstance().getTime());
-		System.out.println(fib(1,1,1) + "\n" + sw.elapsedTime());
+		System.out.println(fib(200,1,1) + "\n" + sw.elapsedTime(TimeConvert.MILLSECOND));
 	}
 
 }

@@ -1,7 +1,9 @@
-package util;
+package algs4;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+
+import util.StdOut;
 
 /**
  * 
@@ -105,11 +107,11 @@ public class ResizingArrayQueue<E> implements Iterable<E>{
         for(int i = 0; i < 100 ; i++){
         	q.enqueue(i);
         }
-        for(int i : q){
+        /*for(int i : q){
         	StdOut.print(i+"\n");
-        }
+        }*/
         for(int i = 0; i < 100 ; i++){
-        	q.dequeue();
+        	System.out.println(q.dequeue());
         }
 	}
 	
