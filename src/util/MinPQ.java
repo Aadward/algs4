@@ -1,8 +1,4 @@
-package algs4;
-
-import java.util.Random;
-
-import sundry.FileSort;
+package util;
 
 public class MinPQ<Key extends Comparable<Key>> {
 	private Key[] pq;
@@ -61,5 +57,15 @@ public class MinPQ<Key extends Comparable<Key>> {
 		Key ki = pq[i];
 		Key kj = pq[j];
 		return ki.compareTo(kj) <= 0;
+	}
+	
+	public static void main(String[] args) {
+		MinPQ<Integer> pq = new MinPQ<Integer>(10);
+		for(int i = 10; i > 0; i--){
+			pq.insert(i);
+		}
+		for(int i = 0; i < 10; i++){
+			System.out.println(pq.delMin());
+		}
 	}
 }

@@ -11,9 +11,9 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
+import util.MinPQ;
 import util.StopWatch;
 import util.StopWatch.TimeConvert;
-import algs4.MinPQ;
 import algs4.ResizingArrayQueue;
 
 public class FileSort {
