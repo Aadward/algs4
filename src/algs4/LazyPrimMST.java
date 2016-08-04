@@ -64,7 +64,7 @@ public class LazyPrimMST {
 	}
 	
 	public static void main(String[] args) {
-		In in = new In(args[0]);
+		In in = new In("F:/mediumPrim.txt");
 		EdgeWeightedGraph G = new EdgeWeightedGraph(in);
 		LazyPrimMST mst = new LazyPrimMST(G);
 		for(Edge edge : mst.edges()){
