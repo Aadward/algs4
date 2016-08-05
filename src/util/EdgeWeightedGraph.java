@@ -21,7 +21,6 @@ public class EdgeWeightedGraph {
 	
 	public EdgeWeightedGraph(In in){
 		this(in.readInt());
-		this.E = 0;
 		int E = in.readInt();
 		for(int i = 0; i < E; i++){
 			int v = in.readInt();
@@ -31,7 +30,7 @@ public class EdgeWeightedGraph {
 		}
 	}
 	
-	private void addEdge(Edge edge){
+	public void addEdge(Edge edge){
 		int v = edge.either();
 		int w = edge.other(v);
 		adj[v].add(edge);
