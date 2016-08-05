@@ -1,5 +1,8 @@
 package util;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class EdgeWeightedGraph {
 	private final int V;
 	private int E;
@@ -49,7 +52,7 @@ public class EdgeWeightedGraph {
 	}
 	
 	public Iterable<Edge> edges(){
-		Bag<Edge> edges = new Bag<Edge>();
+		Set<Edge> edges = new HashSet<Edge>();
 		for(int i = 0; i < V; i++){
 			for(Edge edge : adj[i]){
 				edges.add(edge);
