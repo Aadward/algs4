@@ -60,8 +60,55 @@ public class LongestPalindrome {
         return s.substring(result[0],result[1]+1);
     }
 
+    public String longestPalindromeLCS(String s){
+        s = " " + s;
+        int len = s.length();
+        char[] source = s.toCharArray();
+        char[] reverse = new char[len];
+        reverse[0] = source[0];
+        for(int i = 1; i < len; i++){
+            reverse[i] = source[len - i];
+        }
+        int[][] dp = new int[len][len];
+        for(int i = 0; i < len; i++){
+            dp[0][i] = 0;
+            dp[i][0] = 0;
+        }
+        for(int i = 1; i < len; i++){
+            for(int j = 1; j < len; j++){
+                if(source[i] == reverse[j]){
+                    dp[i][j] = dp[i-1][j-1] + 1;
+                }else{
+                    dp[i][j] = Math.max(dp[i][j-1],dp[i-1][j]);
+                }
+            }
+        }
+        int lcsLen = dp[len-1][len-1];
+        int[] ret = new int[lcsLen];
+        int i = len - 1, j = len - 1;
+        while(i >= 0 && j >= 0){
+            if(dp[i][j] != dp[i-1][j] && dp[i][j] != dp[i][j-1]){
+                ret[--lcsLen] = i;
+                i--;
+                j--;
+            }else if(dp[i][j] == dp[i-1][j]){
+                i--;
+            }else if(dp[i][j] == dp[i][j-1]){
+                j--;
+            }
+            if(lcsLen == 0)  break;
+        }
+        StringBuilder sb = new StringBuilder();
+        for(int temp : ret){
+            sb.append(source[temp]);
+        }
+        return sb.toString();
+    }
+
     public static void main(String[] args) {
+        System.out.println(Integer.parseInt("123",16));
         System.out.println(new LongestPalindrome().longestPalindrome("fewofewuibgfoabafeihfniepfnhipeddddqwdew"));
         System.out.println(new LongestPalindrome().longestPalindromeDP("fewofewuibgfoabafeihfniepfnhipeddddqwdew"));
+        System.out.println(new LongestPalindrome().longestPalindromeLCS("fewofewuibgfoabafeihfniepfnhipeddddqwdew"));
     }
 }

@@ -26,7 +26,8 @@ public class PrimMST {
 		}
 		marked = new boolean[G.V()];
 		pq = new IndexMinPQ<Edge>(G.V());
-		
+
+		//从节点0开始
 		distTo[0] = 0.0;
 		pq.insert(0, new Edge(0, 0, 0));
 		while(!pq.isEmpty()){
